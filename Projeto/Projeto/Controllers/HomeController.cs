@@ -13,5 +13,10 @@ namespace Projeto.Controllers
         {
             return View();
         }
+
+        public ActionResult HorariosView()
+        {
+            return View();
+        }
     }
 }
