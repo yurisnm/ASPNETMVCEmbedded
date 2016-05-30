@@ -17,10 +17,29 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("EmbeddedApp", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li class="active">
+                      <a href="#">Home</a>
+                    </li>
+                    <li>
+                      <div>
+                          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                          </button>
+                          @Html.ActionLink("Horários", "HorariosView", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                      </div>
+                    </li>
+                    <li>
+                      <a href="#">Individual</a>
+                    </li>
+                    <li>
+                      <a href="#">Mesclagem</a>
+                    </li>
                 </ul>
             </div>
         </div>
