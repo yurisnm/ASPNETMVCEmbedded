@@ -15,7 +15,7 @@ namespace Projeto.Models
         public Dictionary<int, string> sexta;
         public Dictionary<int, string> sabado;
         public Dictionary<int, string> domingo;
-        public List<Pessoa> pessoasCadastradas;
+        //public List<Pessoa> pessoasCadastradas;
 
         public Cronograma()
         {
@@ -26,7 +26,8 @@ namespace Projeto.Models
             sexta = new Dictionary<int, string>();
             sabado = new Dictionary<int, string>();
             domingo = new Dictionary<int, string>();
-            pessoasCadastradas = new List<Pessoa>();
+            //pessoasCadastradas = new List<Pessoa>();
+            carrega();
         }
 
         private void carrega()
@@ -34,6 +35,29 @@ namespace Projeto.Models
             //Carregar o banco de dados ou arquivo para salvar na lista de pessoas
         }
 
+        public bool addPessoaNoCronograma(string dia, int hora, string nomePessoa)
+        {
+            // Adciona pessoa no cronograma, apenas um Administrador logado
 
+            return true;
+        }
+
+        public string pessoasEmHorario(string dia, int hora)
+        {
+            // retornar todas as pessoas que estao neste dia e horario
+            return "";
+        }
+
+        public bool verificaPessoaEmHorario(string dia, int hora, string pessoa)
+        {
+            // verifica se a pessoa se encontra neste determiando horario
+            return true;
+        }
+
+        public bool verificaPessoasEmHorario(string dia, int hora, string pessoa1, string pessoa2)
+        {
+            // verifica se ambas as pessoas encontram-se neste determinado horario
+            return true;
+        }
     }
 }
