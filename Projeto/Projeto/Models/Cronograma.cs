@@ -36,7 +36,7 @@ namespace Projeto.Models
         */
         private void carrega()
         {
-            using (StreamReader rd = new StreamReader(@"C:\Users\Thaynan\Source\Repos\ASPNETMVCEmbedded\Projeto\meuArquivo.txt"))
+            using (StreamReader rd = new StreamReader("meuArquivo.txt"))
             {
                 string linhaAtual = rd.ReadLine();
                 while (linhaAtual != null)

@@ -9,26 +9,22 @@ namespace Projeto.Controllers
 {
     public class HomeController : Controller
     {
+        //Criando o meu cronograma que sera impresso na view
+        Cronograma cronograma = new Cronograma();
+
         // GET: Home
         public ActionResult Index()
         {
-            //Criando o meu cronograma que sera impresso na view
-            Cronograma cronograma = new Cronograma();
-
             return View(cronograma);
         }
 
         public ActionResult HorariosView()
         {
-            Cronograma cronograma = new Cronograma();
-
             return View(cronograma);
         }
 
         public ActionResult HorarioIndividualView()
         {
-            Cronograma cronograma = new Cronograma();
-
             return View(cronograma);
         }
     }
