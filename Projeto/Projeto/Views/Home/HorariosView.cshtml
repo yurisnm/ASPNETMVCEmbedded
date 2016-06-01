@@ -1,4 +1,4 @@
-﻿
+﻿@model Projeto.Models.Cronograma
 @{
     ViewBag.Title = "Index";
 }
@@ -24,9 +24,23 @@
             <tbody>
                 <tr>
                     <td>8:00</td>
+                    <td>@Model.pessoasEmHorario("segunda", 8)</td>
+                    <td>@Model.pessoasEmHorario("terca", 8)</td>
+                    <td>@Model.pessoasEmHorario("quarta", 8)</td>
+                    <td>@Model.pessoasEmHorario("quinta", 8)</td>
+                    <td>@Model.pessoasEmHorario("sexta", 8)</td>
+                    <td>@Model.pessoasEmHorario("sabado", 8)</td>
+                    <td>@Model.pessoasEmHorario("domingo", 8)</td>
                 </tr>
                 <tr>
                     <td>9:00</td>
+                    <td>@Model.pessoasEmHorario("segunda", 9)</td>
+                    <td>@Model.pessoasEmHorario("terca", 9)</td>
+                    <td>@Model.pessoasEmHorario("quarta", 9)</td>
+                    <td>@Model.pessoasEmHorario("quinta", 9)</td>
+                    <td>@Model.pessoasEmHorario("sexta", 9)</td>
+                    <td>@Model.pessoasEmHorario("sabado", 9)</td>
+                    <td>@Model.pessoasEmHorario("domingo", 9)</td>
                 </tr>
                 <tr>
                     <td>10:00</td>

@@ -20,7 +20,9 @@ namespace Projeto.Controllers
 
         public ActionResult HorariosView()
         {
-            return View();
+            Cronograma cronograma = new Cronograma();
+
+            return View(cronograma);
         }
     }
 }
