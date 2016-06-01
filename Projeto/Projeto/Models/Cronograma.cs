@@ -8,6 +8,8 @@ namespace Projeto.Models
     public class Cronograma
     {
 
+        private static List<int> horasExistentes = new List<int>() { 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18};
+
         public Dictionary<int, string> segunda;
         public Dictionary<int, string> terca;
         public Dictionary<int, string> quarta;
@@ -15,7 +17,7 @@ namespace Projeto.Models
         public Dictionary<int, string> sexta;
         public Dictionary<int, string> sabado;
         public Dictionary<int, string> domingo;
-        //public List<Pessoa> pessoasCadastradas;
+        public int idade { get; set; }
 
         public Cronograma()
         {
@@ -26,37 +28,174 @@ namespace Projeto.Models
             sexta = new Dictionary<int, string>();
             sabado = new Dictionary<int, string>();
             domingo = new Dictionary<int, string>();
-            //pessoasCadastradas = new List<Pessoa>();
             carrega();
         }
 
+        /**
+         * Carregar o banco de dados ou arquivo para salvar nos dicionarios.
+        */
         private void carrega()
         {
-            //Carregar o banco de dados ou arquivo para salvar na lista de pessoas
+           
+            
         }
 
+        /**
+         * Adciona pessoa no cronograma, caso possa ser realizao a operacao
+        */
         public bool addPessoaNoCronograma(string dia, int hora, string nomePessoa)
         {
-            // Adciona pessoa no cronograma, apenas um Administrador logado
+            
 
             return true;
         }
 
+        /**
+         * Metodo que tem o intuito de retornar todas as pessoas que estao neste dia e horario
+        */
         public string pessoasEmHorario(string dia, int hora)
         {
-            // retornar todas as pessoas que estao neste dia e horario
+            switch (dia)
+            {
+                case "segunda":
+                    if (horasExistentes.Contains(hora))
+                    {
+                        string pessoasEmHorario = segunda[hora];
+                        return pessoasEmHorario;
+                    }
+                    break;
+                case "terca":
+                    if (horasExistentes.Contains(hora))
+                    {
+                        string pessoasEmHorario = terca[hora];
+                        return pessoasEmHorario;
+                    }
+                    break;
+                case "quarta":
+                    if (horasExistentes.Contains(hora))
+                    {
+                        string pessoasEmHorario = quarta[hora];
+                        return pessoasEmHorario;
+                    }
+                    break;
+                case "quinta":
+                    if (horasExistentes.Contains(hora))
+                    {
+                        string pessoasEmHorario = quinta[hora];
+                        return pessoasEmHorario;
+                    }
+                    break;
+                case "sexta":
+                    if (horasExistentes.Contains(hora))
+                    {
+                        string pessoasEmHorario = sexta[hora];
+                        return pessoasEmHorario;
+                    }
+                    break;
+                case "sabado":
+                    if (horasExistentes.Contains(hora))
+                    {
+                        string pessoasEmHorario = sabado[hora];
+                        return pessoasEmHorario;
+                    }
+                    break;
+                case "domingo":
+                    if (horasExistentes.Contains(hora))
+                    {
+                        string pessoasEmHorario = domingo[hora];
+                        return pessoasEmHorario;
+                    }
+                    break;
+                default:
+                    return "";
+
+            }
             return "";
         }
 
+        private bool procuraPessoa(string listaPessoas, string pessoaDesejada)
+        {
+            List<string> arrayPessoas = listaPessoas.Split('\n').ToList<string>();
+            foreach(string pessoaAtual in arrayPessoas)
+            {
+                if (pessoaAtual.Equals(pessoaDesejada))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /**
+         *  Verifica se a pessoa se encontra neste determiando horario
+        */
         public bool verificaPessoaEmHorario(string dia, int hora, string pessoa)
         {
-            // verifica se a pessoa se encontra neste determiando horario
+
+            switch (dia)
+            {
+                case "segunda":
+                    if (horasExistentes.Contains(hora))
+                    {
+                        string pessoasEmHorario = segunda[hora];
+                        return procuraPessoa(pessoasEmHorario, pessoa);
+                    }
+                    break;
+                case "terca":
+                    if (horasExistentes.Contains(hora))
+                    {
+                        string pessoasEmHorario = terca[hora];
+                        return procuraPessoa(pessoasEmHorario, pessoa);
+                    }
+                    break;
+                case "quarta":
+                    if (horasExistentes.Contains(hora))
+                    {
+                        string pessoasEmHorario = quarta[hora];
+                        return procuraPessoa(pessoasEmHorario, pessoa);
+                    }
+                    break;
+                case "quinta":
+                    if (horasExistentes.Contains(hora))
+                    {
+                        string pessoasEmHorario = quinta[hora];
+                        return procuraPessoa(pessoasEmHorario, pessoa);
+                    }
+                    break;
+                case "sexta":
+                    if (horasExistentes.Contains(hora))
+                    {
+                        string pessoasEmHorario = sexta[hora];
+                        return procuraPessoa(pessoasEmHorario, pessoa);
+                    }
+                    break;
+                case "sabado":
+                    if (horasExistentes.Contains(hora))
+                    {
+                        string pessoasEmHorario = sabado[hora];
+                        return procuraPessoa(pessoasEmHorario, pessoa);
+                    }
+                    break;
+                case "domingo":
+                    if (horasExistentes.Contains(hora))
+                    {
+                        string pessoasEmHorario = domingo[hora];
+                        return procuraPessoa(pessoasEmHorario, pessoa);
+                    }
+                    break;
+                default:
+                    return false;
+
+            }
             return true;
         }
 
-        public bool verificaPessoasEmHorario(string dia, int hora, string pessoa1, string pessoa2)
+        /**
+         * Verifica se ambas as pessoas encontram-se neste determinado horario
+        */
+        public bool verificaVariasPessoasEmHorario(string dia, int hora, string pessoa1, string pessoa2)
         {
-            // verifica se ambas as pessoas encontram-se neste determinado horario
+            
             return true;
         }
     }
