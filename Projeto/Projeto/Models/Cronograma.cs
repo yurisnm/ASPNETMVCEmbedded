@@ -17,7 +17,6 @@ namespace Projeto.Models
         public Dictionary<int, string> sexta;
         public Dictionary<int, string> sabado;
         public Dictionary<int, string> domingo;
-        public int idade { get; set; }
 
         public Cronograma()
         {
@@ -36,8 +35,9 @@ namespace Projeto.Models
         */
         private void carrega()
         {
-           
-            
+            segunda.Add(8, "Zeca\nMaria\nLucas\nMarcela");
+            segunda.Add(12, "Luciana");
+            sabado.Add(9, "Maria\nZeca\nJoao");
         }
 
         /**
@@ -58,49 +58,49 @@ namespace Projeto.Models
             switch (dia)
             {
                 case "segunda":
-                    if (horasExistentes.Contains(hora))
+                    if (horasExistentes.Contains(hora) && segunda.ContainsKey(hora))
                     {
                         string pessoasEmHorario = segunda[hora];
                         return pessoasEmHorario;
                     }
                     break;
                 case "terca":
-                    if (horasExistentes.Contains(hora))
+                    if (horasExistentes.Contains(hora) && terca.ContainsKey(hora))
                     {
                         string pessoasEmHorario = terca[hora];
                         return pessoasEmHorario;
                     }
                     break;
                 case "quarta":
-                    if (horasExistentes.Contains(hora))
+                    if (horasExistentes.Contains(hora) && quarta.ContainsKey(hora))
                     {
                         string pessoasEmHorario = quarta[hora];
                         return pessoasEmHorario;
                     }
                     break;
                 case "quinta":
-                    if (horasExistentes.Contains(hora))
+                    if (horasExistentes.Contains(hora) && quinta.ContainsKey(hora))
                     {
                         string pessoasEmHorario = quinta[hora];
                         return pessoasEmHorario;
                     }
                     break;
                 case "sexta":
-                    if (horasExistentes.Contains(hora))
+                    if (horasExistentes.Contains(hora) && sexta.ContainsKey(hora))
                     {
                         string pessoasEmHorario = sexta[hora];
                         return pessoasEmHorario;
                     }
                     break;
                 case "sabado":
-                    if (horasExistentes.Contains(hora))
+                    if (horasExistentes.Contains(hora) && sabado.ContainsKey(hora))
                     {
                         string pessoasEmHorario = sabado[hora];
                         return pessoasEmHorario;
                     }
                     break;
                 case "domingo":
-                    if (horasExistentes.Contains(hora))
+                    if (horasExistentes.Contains(hora) && domingo.ContainsKey(hora))
                     {
                         string pessoasEmHorario = domingo[hora];
                         return pessoasEmHorario;
@@ -118,7 +118,7 @@ namespace Projeto.Models
             List<string> arrayPessoas = listaPessoas.Split('\n').ToList<string>();
             foreach(string pessoaAtual in arrayPessoas)
             {
-                if (pessoaAtual.Equals(pessoaDesejada))
+                if (pessoaAtual.ToLower().Equals(pessoaDesejada.ToLower()))
                 {
                     return true;
                 }
@@ -135,59 +135,56 @@ namespace Projeto.Models
             switch (dia)
             {
                 case "segunda":
-                    if (horasExistentes.Contains(hora))
+                    if (horasExistentes.Contains(hora) && segunda.ContainsKey(hora))
                     {
                         string pessoasEmHorario = segunda[hora];
                         return procuraPessoa(pessoasEmHorario, pessoa);
                     }
                     break;
                 case "terca":
-                    if (horasExistentes.Contains(hora))
+                    if (horasExistentes.Contains(hora) && terca.ContainsKey(hora))
                     {
                         string pessoasEmHorario = terca[hora];
                         return procuraPessoa(pessoasEmHorario, pessoa);
                     }
                     break;
                 case "quarta":
-                    if (horasExistentes.Contains(hora))
+                    if (horasExistentes.Contains(hora) && quarta.ContainsKey(hora))
                     {
                         string pessoasEmHorario = quarta[hora];
                         return procuraPessoa(pessoasEmHorario, pessoa);
                     }
                     break;
                 case "quinta":
-                    if (horasExistentes.Contains(hora))
+                    if (horasExistentes.Contains(hora) && quinta.ContainsKey(hora))
                     {
                         string pessoasEmHorario = quinta[hora];
                         return procuraPessoa(pessoasEmHorario, pessoa);
                     }
                     break;
                 case "sexta":
-                    if (horasExistentes.Contains(hora))
+                    if (horasExistentes.Contains(hora) && sexta.ContainsKey(hora))
                     {
                         string pessoasEmHorario = sexta[hora];
                         return procuraPessoa(pessoasEmHorario, pessoa);
                     }
                     break;
                 case "sabado":
-                    if (horasExistentes.Contains(hora))
+                    if (horasExistentes.Contains(hora) && sabado.ContainsKey(hora))
                     {
                         string pessoasEmHorario = sabado[hora];
                         return procuraPessoa(pessoasEmHorario, pessoa);
                     }
                     break;
                 case "domingo":
-                    if (horasExistentes.Contains(hora))
+                    if (horasExistentes.Contains(hora) && domingo.ContainsKey(hora))
                     {
                         string pessoasEmHorario = domingo[hora];
                         return procuraPessoa(pessoasEmHorario, pessoa);
                     }
                     break;
-                default:
-                    return false;
-
             }
-            return true;
+            return false;
         }
 
         /**
