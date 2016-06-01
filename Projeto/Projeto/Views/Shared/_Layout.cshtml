@@ -24,6 +24,7 @@
                     <li class="active">
                       <a href="#">Home</a>
                     </li>
+                    <li></li>
                     <li>
                       <div>
                           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -35,7 +36,12 @@
                       </div>
                     </li>
                     <li>
-                      <a href="#">Individual</a>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        @Html.ActionLink("Individual", "HorarioIndividualView", "Home", new { area = "" }, new { @class = "navbar-brand" })
                     </li>
                     <li>
                       <a href="#">Mesclagem</a>
