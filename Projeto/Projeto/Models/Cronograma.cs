@@ -9,7 +9,7 @@ namespace Projeto.Models
     public class Cronograma
     {
 
-        public string nomePessoaHorario { get; set; }
+        public string nomePessoaHorario { get; set; } = "";
 
         private static List<int> horasExistentes = new List<int>() { 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18};
 
@@ -38,16 +38,16 @@ namespace Projeto.Models
         */
         private void carrega()
         {
-//            using (StreamReader rd = new StreamReader("meuArquivo.txt"))
-//            {
-//                string linhaAtual = rd.ReadLine();
-//                while (linhaAtual != null)
-//                {
-//                    string[] valores = linhaAtual.Split(',');
-//                    addNoDicionario(valores[2], valores[0], Convert.ToInt32(valores[1]));
-//                    linhaAtual = rd.ReadLine();
-//                }
-//           }
+            using (StreamReader rd = new StreamReader("C:/Users/YURISNMELO/Desktop/EMBEDDED/WORKSPACE/ASPNETMVCEmbedded/Projeto/Projeto/meuArquivo.txt"))
+            {
+                string linhaAtual = rd.ReadLine();
+                while (linhaAtual != null)
+                {
+                    string[] valores = linhaAtual.Split(',');
+                    addNoDicionario(valores[2], valores[0], Convert.ToInt32(valores[1]));
+                    linhaAtual = rd.ReadLine();
+                }
+           }
         }
 
         private void addNoDicionario(string pessoa, string dia, int hora)
@@ -251,7 +251,6 @@ namespace Projeto.Models
         */
         public bool verificaPessoaEmHorario(string dia, int hora, string pessoa)
         {
-            pessoa = this.nomePessoaHorario;
             switch (dia)
             {
                 case "segunda":
