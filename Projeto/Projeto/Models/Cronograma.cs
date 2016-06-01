@@ -36,14 +36,16 @@ namespace Projeto.Models
         */
         private void carrega()
         {
-            StreamReader rd = new StreamReader(@"C:\Users\Thaynan\Source\Repos\ASPNETMVCEmbedded\Projeto\Planilha.txt");
-            while (!rd.EndOfStream)
+            using (StreamReader rd = new StreamReader(@"C:\Users\Thaynan\Source\Repos\ASPNETMVCEmbedded\Projeto\meuArquivo.txt"))
             {
                 string linhaAtual = rd.ReadLine();
-                string[] valores = linhaAtual.Split(',');
-                addNoDicionario(valores[2], valores[0], Convert.ToInt32(valores[1]));
+                while (linhaAtual != null)
+                {
+                    string[] valores = linhaAtual.Split(',');
+                    addNoDicionario(valores[2], valores[0], Convert.ToInt32(valores[1]));
+                    linhaAtual = rd.ReadLine();
+                }
             }
-            rd.Close();
         }
 
         private void addNoDicionario(string pessoa, string dia, int hora)
@@ -226,7 +228,7 @@ namespace Projeto.Models
 
         private bool procuraPessoa(string listaPessoas, string pessoaDesejada)
         {
-            List<string> arrayPessoas = listaPessoas.Split('\n').ToList<string>();
+            List<string> arrayPessoas = listaPessoas.Split(' ').ToList<string>();
             foreach(string pessoaAtual in arrayPessoas)
             {
                 if (pessoaAtual.ToLower().Equals(pessoaDesejada.ToLower()))
