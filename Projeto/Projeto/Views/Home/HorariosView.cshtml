@@ -1,4 +1,4 @@
-﻿
+﻿@model Projeto.Models.Cronograma
 @{
     ViewBag.Title = "Index";
 }
@@ -9,7 +9,7 @@
     <h2>Horário</h2>
     <div class="table-responsive">
         <table class="table">
-            <thead>
+            <thead class="thead-inverse">
                 <tr>
                     <th>Hora</th>
                     <th>Seg</th>
@@ -23,34 +23,114 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>8:00</td>
+                    <td width="50">8:00</td>
+                    <td width="50">@Model.pessoasEmHorario("segunda", 8)</td>
+                    <td width="50">@Model.pessoasEmHorario("terca", 8)</td>
+                    <td width="50">@Model.pessoasEmHorario("quarta", 8)</td>
+                    <td width="50">@Model.pessoasEmHorario("quinta", 8)</td>
+                    <td width="50">@Model.pessoasEmHorario("sexta", 8)</td>
+                    <td width="50">@Model.pessoasEmHorario("sabado", 8)</td>
+                    <td width="50">@Model.pessoasEmHorario("domingo", 8)</td>
                 </tr>
                 <tr>
-                    <td>9:00</td>
+                    <td width="50">9:00</td>
+                    <td width="50">@Model.pessoasEmHorario("segunda", 9)</td>
+                    <td width="50">@Model.pessoasEmHorario("terca", 9)</td>
+                    <td width="50">@Model.pessoasEmHorario("quarta", 9)</td>
+                    <td width="50">@Model.pessoasEmHorario("quinta", 9)</td>
+                    <td width="50">@Model.pessoasEmHorario("sexta", 9)</td>
+                    <td width="50">@Model.pessoasEmHorario("sabado", 9)</td>
+                    <td width="50">@Model.pessoasEmHorario("domingo", 9)</td>
                 </tr>
                 <tr>
-                    <td>10:00</td>
+                    <td width="50">10:00</td>
+                    <td width="50">@Model.pessoasEmHorario("segunda", 10)</td>
+                    <td width="50">@Model.pessoasEmHorario("terca", 10)</td>
+                    <td width="50">@Model.pessoasEmHorario("quarta", 10)</td>
+                    <td width="50">@Model.pessoasEmHorario("quinta", 10)</td>
+                    <td width="50">@Model.pessoasEmHorario("sexta", 10)</td>
+                    <td width="50">@Model.pessoasEmHorario("sabado", 10)</td>
+                    <td width="50">@Model.pessoasEmHorario("domingo", 10)</td>
                 </tr>
                 <tr>
-                    <td>11:00</td>
+                    <td width="50">11:00</td>
+                    <td width="50">@Model.pessoasEmHorario("segunda", 11)</td>
+                    <td width="50">@Model.pessoasEmHorario("terca", 11)</td>
+                    <td width="50">@Model.pessoasEmHorario("quarta", 11)</td>
+                    <td width="50">@Model.pessoasEmHorario("quinta", 11)</td>
+                    <td width="50">@Model.pessoasEmHorario("sexta", 11)</td>
+                    <td width="50">@Model.pessoasEmHorario("sabado", 11)</td>
+                    <td width="50">@Model.pessoasEmHorario("domingo", 11)</td>
                 </tr>
                 <tr>
-                    <td>12:00</td>
+                    <td width="50">12:00</td>
+                    <td width="50">@Model.pessoasEmHorario("segunda", 12)</td>
+                    <td width="50">@Model.pessoasEmHorario("terca", 12)</td>
+                    <td width="50">@Model.pessoasEmHorario("quarta", 12)</td>
+                    <td width="50">@Model.pessoasEmHorario("quinta", 12)</td>
+                    <td width="50">@Model.pessoasEmHorario("sexta", 12)</td>
+                    <td width="50">@Model.pessoasEmHorario("sabado", 12)</td>
+                    <td width="50">@Model.pessoasEmHorario("domingo", 12)</td>
                 </tr>
                 <tr>
-                    <td>13:00</td>
+                    <td width="50">13:00</td>
+                    <td width="50">@Model.pessoasEmHorario("segunda", 13)</td>
+                    <td width="50">@Model.pessoasEmHorario("terca", 13)</td>
+                    <td width="50">@Model.pessoasEmHorario("quarta", 13)</td>
+                    <td width="50">@Model.pessoasEmHorario("quinta", 13)</td>
+                    <td width="50">@Model.pessoasEmHorario("sexta", 13)</td>
+                    <td width="50">@Model.pessoasEmHorario("sabado", 13)</td>
+                    <td width="50">@Model.pessoasEmHorario("domingo", 13)</td>
                 </tr>
                 <tr>
-                    <td>14:00</td>
+                    <td width="50">14:00</td>
+                    <td width="50">@Model.pessoasEmHorario("segunda", 14)</td>
+                    <td width="50">@Model.pessoasEmHorario("terca", 14)</td>
+                    <td width="50">@Model.pessoasEmHorario("quarta", 14)</td>
+                    <td width="50">@Model.pessoasEmHorario("quinta", 14)</td>
+                    <td width="50">@Model.pessoasEmHorario("sexta", 14)</td>
+                    <td width="50">@Model.pessoasEmHorario("sabado", 14)</td>
+                    <td width="50">@Model.pessoasEmHorario("domingo", 14)</td>
                 </tr>
                 <tr>
-                    <td>15:00</td>
+                    <td width="50">15:00</td>
+                    <td width="50">@Model.pessoasEmHorario("segunda", 15)</td>
+                    <td width="50">@Model.pessoasEmHorario("terca", 15)</td>
+                    <td width="50">@Model.pessoasEmHorario("quarta", 15)</td>
+                    <td width="50">@Model.pessoasEmHorario("quinta", 15)</td>
+                    <td width="50">@Model.pessoasEmHorario("sexta", 15)</td>
+                    <td width="50">@Model.pessoasEmHorario("sabado", 15)</td>
+                    <td width="50">@Model.pessoasEmHorario("domingo", 15)</td>
                 </tr>
                 <tr>
-                    <td>16:00</td>
+                    <td width="50">16:00</td>
+                    <td width="50">@Model.pessoasEmHorario("segunda", 16)</td>
+                    <td width="50">@Model.pessoasEmHorario("terca", 16)</td>
+                    <td width="50">@Model.pessoasEmHorario("quarta", 16)</td>
+                    <td width="50">@Model.pessoasEmHorario("quinta", 16)</td>
+                    <td width="50">@Model.pessoasEmHorario("sexta", 16)</td>
+                    <td width="50">@Model.pessoasEmHorario("sabado", 16)</td>
+                    <td width="50">@Model.pessoasEmHorario("domingo", 16)</td>
                 </tr>
                 <tr>
-                    <td>17:00</td>
+                    <td width="50">17:00</td>
+                    <td width="50">@Model.pessoasEmHorario("segunda", 17)</td>
+                    <td width="50">@Model.pessoasEmHorario("terca", 17)</td>
+                    <td width="50">@Model.pessoasEmHorario("quarta", 17)</td>
+                    <td width="50">@Model.pessoasEmHorario("quinta", 17)</td>
+                    <td width="50">@Model.pessoasEmHorario("sexta", 17)</td>
+                    <td width="50">@Model.pessoasEmHorario("sabado", 17)</td>
+                    <td width="50">@Model.pessoasEmHorario("domingo", 17)</td>
+                </tr>
+                <tr>
+                    <td width="50">18:00</td>
+                    <td width="50">@Model.pessoasEmHorario("segunda", 18)</td>
+                    <td width="50">@Model.pessoasEmHorario("terca", 18)</td>
+                    <td width="50">@Model.pessoasEmHorario("quarta", 18)</td>
+                    <td width="50">@Model.pessoasEmHorario("quinta", 18)</td>
+                    <td width="50">@Model.pessoasEmHorario("sexta", 18)</td>
+                    <td width="50">@Model.pessoasEmHorario("sabado", 18)</td>
+                    <td width="50">@Model.pessoasEmHorario("domingo", 18)</td>
                 </tr>
 
             </tbody>
