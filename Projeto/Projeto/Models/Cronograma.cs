@@ -36,16 +36,16 @@ namespace Projeto.Models
         */
         private void carrega()
         {
-            using (StreamReader rd = new StreamReader(@"C:\Users\Thaynan\Source\Repos\ASPNETMVCEmbedded\Projeto\meuArquivo.txt"))
-            {
-                string linhaAtual = rd.ReadLine();
-                while (linhaAtual != null)
-                {
-                    string[] valores = linhaAtual.Split(',');
-                    addNoDicionario(valores[2], valores[0], Convert.ToInt32(valores[1]));
-                    linhaAtual = rd.ReadLine();
-                }
-            }
+//            using (StreamReader rd = new StreamReader(@"C:\Users\Thaynan\Source\Repos\ASPNETMVCEmbedded\Projeto\meuArquivo.txt"))
+//            {
+//                string linhaAtual = rd.ReadLine();
+//                while (linhaAtual != null)
+//                {
+//                    string[] valores = linhaAtual.Split(',');
+//                    addNoDicionario(valores[2], valores[0], Convert.ToInt32(valores[1]));
+//                    linhaAtual = rd.ReadLine();
+//                }
+//            }
         }
 
         private void addNoDicionario(string pessoa, string dia, int hora)
