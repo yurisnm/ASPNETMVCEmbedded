@@ -38,7 +38,9 @@ namespace Projeto.Models
         */
         private void carrega()
         {
-            using (StreamReader rd = new StreamReader("C:/Users/YURISNMELO/Desktop/EMBEDDED/WORKSPACE/ASPNETMVCEmbedded/Projeto/Projeto/meuArquivo.txt"))
+
+            using (StreamReader rd = new StreamReader("C:/Users/YURISNMELO/Desktop/EMBEDDED/WORKSPACE/ASPNETMVCEmbedded/Projeto/Projeto/App_Data/meuArquivo.txt"))
+
             {
                 string linhaAtual = rd.ReadLine();
                 while (linhaAtual != null)
@@ -47,8 +49,11 @@ namespace Projeto.Models
                     addNoDicionario(valores[2], valores[0], Convert.ToInt32(valores[1]));
                     linhaAtual = rd.ReadLine();
                 }
+
            }
-        }
+
+            }
+
 
         private void addNoDicionario(string pessoa, string dia, int hora)
         {
@@ -59,8 +64,7 @@ namespace Projeto.Models
                     {
                         if (segunda.ContainsKey(hora))
                         {
-                            string pessoasEmHorario = segunda[hora] + pessoa;
-                            segunda.Add(hora, pessoasEmHorario);
+                            segunda[hora] = segunda[hora] + " " + pessoa;
                         }
                         else
                         {
@@ -73,8 +77,7 @@ namespace Projeto.Models
                     {
                         if (terca.ContainsKey(hora))
                         {
-                            string pessoasEmHorario = terca[hora] + pessoa;
-                            terca.Add(hora, pessoasEmHorario);
+                            terca[hora] = terca[hora] + " " + pessoa;
                         }
                         else
                         {
@@ -87,8 +90,7 @@ namespace Projeto.Models
                     {
                         if (quarta.ContainsKey(hora))
                         {
-                            string pessoasEmHorario = quarta[hora] + pessoa;
-                            quarta.Add(hora, pessoasEmHorario);
+                            quarta[hora] = quarta[hora] + " " + pessoa;
                         }
                         else
                         {
@@ -101,8 +103,7 @@ namespace Projeto.Models
                     {
                         if (quinta.ContainsKey(hora))
                         {
-                            string pessoasEmHorario = quinta[hora] + pessoa;
-                            quinta.Add(hora, pessoasEmHorario);
+                            quinta[hora] = quinta[hora] + " " + pessoa;
                         }
                         else
                         {
@@ -115,8 +116,7 @@ namespace Projeto.Models
                     {
                         if (sexta.ContainsKey(hora))
                         {
-                            string pessoasEmHorario = sexta[hora] + pessoa;
-                            sexta.Add(hora, pessoasEmHorario);
+                            sexta[hora] = sexta[hora] + " " + pessoa;
                         }
                         else
                         {
@@ -129,8 +129,7 @@ namespace Projeto.Models
                     {
                         if (sabado.ContainsKey(hora))
                         {
-                            string pessoasEmHorario = sabado[hora] + pessoa;
-                            sabado.Add(hora, pessoasEmHorario);
+                            sabado[hora] = sabado[hora] + " " + pessoa;
                         }
                         else
                         {
@@ -143,8 +142,7 @@ namespace Projeto.Models
                     {
                         if (domingo.ContainsKey(hora))
                         {
-                            string pessoasEmHorario = domingo[hora] + pessoa;
-                            domingo.Add(hora, pessoasEmHorario);
+                            domingo[hora] = domingo[hora] + " " + pessoa;
                         }
                         else
                         {
@@ -160,9 +158,15 @@ namespace Projeto.Models
         */
         public bool addPessoaNoCronograma(string dia, int hora, string nomePessoa)
         {
-            
-
-            return true;
+            if(verificaPessoaEmHorario(dia, hora, nomePessoa) != "")
+            {
+               StreamWriter wr = new StreamWriter(@"C:\Users\Thaynan\Source\Repos\ASPNETMVCEmbedded\Projeto\Projeto\App_Data\meuArquivo.txt");
+               wr.WriteLine(dia + " " + Convert.ToString(hora) + " " + nomePessoa);
+               wr.Close();
+               carrega();
+               return true;
+            }
+            return false;
         }
 
         /**
@@ -249,7 +253,7 @@ namespace Projeto.Models
         /**
          *  Verifica se a pessoa se encontra neste determiando horario
         */
-        public bool verificaPessoaEmHorario(string dia, int hora, string pessoa)
+        public string verificaPessoaEmHorario(string dia, int hora, string pessoa)
         {
             switch (dia)
             {
@@ -257,53 +261,53 @@ namespace Projeto.Models
                     if (horasExistentes.Contains(hora) && segunda.ContainsKey(hora))
                     {
                         string pessoasEmHorario = segunda[hora];
-                        return procuraPessoa(pessoasEmHorario, pessoa);
+                        if(procuraPessoa(pessoasEmHorario, pessoa)) { return pessoa; }
                     }
                     break;
                 case "terca":
                     if (horasExistentes.Contains(hora) && terca.ContainsKey(hora))
                     {
                         string pessoasEmHorario = terca[hora];
-                        return procuraPessoa(pessoasEmHorario, pessoa);
+                        if(procuraPessoa(pessoasEmHorario, pessoa)) { return pessoa; }
                     }
                     break;
                 case "quarta":
                     if (horasExistentes.Contains(hora) && quarta.ContainsKey(hora))
                     {
                         string pessoasEmHorario = quarta[hora];
-                        return procuraPessoa(pessoasEmHorario, pessoa);
+                        if(procuraPessoa(pessoasEmHorario, pessoa)) { return pessoa; }
                     }
                     break;
                 case "quinta":
                     if (horasExistentes.Contains(hora) && quinta.ContainsKey(hora))
                     {
                         string pessoasEmHorario = quinta[hora];
-                        return procuraPessoa(pessoasEmHorario, pessoa);
+                        if(procuraPessoa(pessoasEmHorario, pessoa)) { return pessoa; }
                     }
                     break;
                 case "sexta":
                     if (horasExistentes.Contains(hora) && sexta.ContainsKey(hora))
                     {
                         string pessoasEmHorario = sexta[hora];
-                        return procuraPessoa(pessoasEmHorario, pessoa);
+                        if(procuraPessoa(pessoasEmHorario, pessoa)) { return pessoa; }
                     }
                     break;
                 case "sabado":
                     if (horasExistentes.Contains(hora) && sabado.ContainsKey(hora))
                     {
                         string pessoasEmHorario = sabado[hora];
-                        return procuraPessoa(pessoasEmHorario, pessoa);
+                        if(procuraPessoa(pessoasEmHorario, pessoa)) { return pessoa; }
                     }
                     break;
                 case "domingo":
                     if (horasExistentes.Contains(hora) && domingo.ContainsKey(hora))
                     {
                         string pessoasEmHorario = domingo[hora];
-                        return procuraPessoa(pessoasEmHorario, pessoa);
+                        if(procuraPessoa(pessoasEmHorario, pessoa)) { return pessoa; }
                     }
                     break;
             }
-            return false;
+            return "";
         }
 
         /**

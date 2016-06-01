@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projeto", "Projeto\Projeto.csproj", "{196079EA-4891-44F8-9E0D-71D6E81AFAB1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E10C9F4B-7D4C-416B-A269-495DB6D52B17}"
+	ProjectSection(SolutionItems) = preProject
+		Projeto\App_Data\meuArquivo.txt = Projeto\App_Data\meuArquivo.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
