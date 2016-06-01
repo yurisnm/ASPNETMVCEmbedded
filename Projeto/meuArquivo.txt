@@ -1,0 +1,8 @@
+segunda,8,Maria Joao Roberta
+segunda,11,Lucas Maria Roberta
+segunda,15,Maira Flavio
+terca,9,Joao Claudio Beatriz
+terca,10,Luciana Luciano Carlos
+quarta,13,Pedro Lucas
+sexta,17,Luana Marcela Claudia
+sabado,12,Luciana Beatriz Luiz
