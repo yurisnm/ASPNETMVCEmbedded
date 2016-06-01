@@ -1,0 +1,8 @@
+segunda,8,Maria\nJoao\nRoberta
+segunda,11,Lucas\nMaria\nRoberta
+segunda,15,Maira\nFlavio
+terca,9,Joao\nClaudio\nBeatriz
+terca,10,Luciana\nLuciano\nCarlos
+quarta,13,Pedro\nLucas
+sexta,17,Luana\nMarcela\nClaudia
+sabado,12,Luciana\nBeatriz\nLuiz

@@ -24,5 +24,12 @@ namespace Projeto.Controllers
 
             return View(cronograma);
         }
+
+        public ActionResult HorarioIndividualView()
+        {
+            Cronograma cronograma = new Cronograma();
+
+            return View(cronograma);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -35,10 +36,120 @@ namespace Projeto.Models
         */
         private void carrega()
         {
-            segunda.Add(8, "Zeca\nMaria\nLucas\nMarcela");
-            segunda.Add(12, "Luciana");
-            sabado.Add(9, "Maria\nZeca\nJoao");
+            StreamReader rd = new StreamReader(@"C:\Users\Thaynan\Source\Repos\ASPNETMVCEmbedded\Projeto\Planilha.txt");
+            while (!rd.EndOfStream)
+            {
+                string linhaAtual = rd.ReadLine();
+                string[] valores = linhaAtual.Split(',');
+                addNoDicionario(valores[2], valores[0], Convert.ToInt32(valores[1]));
+            }
+            rd.Close();
         }
+
+        private void addNoDicionario(string pessoa, string dia, int hora)
+        {
+            switch (dia)
+            {
+                case "segunda":
+                    if (horasExistentes.Contains(hora))
+                    {
+                        if (segunda.ContainsKey(hora))
+                        {
+                            string pessoasEmHorario = segunda[hora] + pessoa;
+                            segunda.Add(hora, pessoasEmHorario);
+                        }
+                        else
+                        {
+                            segunda.Add(hora, pessoa);
+                        }
+                    }
+                    break;
+                case "terca":
+                    if (horasExistentes.Contains(hora))
+                    {
+                        if (terca.ContainsKey(hora))
+                        {
+                            string pessoasEmHorario = terca[hora] + pessoa;
+                            terca.Add(hora, pessoasEmHorario);
+                        }
+                        else
+                        {
+                            terca.Add(hora, pessoa);
+                        }
+                    }
+                    break;
+                case "quarta":
+                    if (horasExistentes.Contains(hora))
+                    {
+                        if (quarta.ContainsKey(hora))
+                        {
+                            string pessoasEmHorario = quarta[hora] + pessoa;
+                            quarta.Add(hora, pessoasEmHorario);
+                        }
+                        else
+                        {
+                            quarta.Add(hora, pessoa);
+                        }
+                    }
+                    break;
+                case "quinta":
+                    if (horasExistentes.Contains(hora))
+                    {
+                        if (quinta.ContainsKey(hora))
+                        {
+                            string pessoasEmHorario = quinta[hora] + pessoa;
+                            quinta.Add(hora, pessoasEmHorario);
+                        }
+                        else
+                        {
+                            quinta.Add(hora, pessoa);
+                        }
+                    }
+                    break;
+                case "sexta":
+                    if (horasExistentes.Contains(hora))
+                    {
+                        if (sexta.ContainsKey(hora))
+                        {
+                            string pessoasEmHorario = sexta[hora] + pessoa;
+                            sexta.Add(hora, pessoasEmHorario);
+                        }
+                        else
+                        {
+                            sexta.Add(hora, pessoa);
+                        }
+                    }
+                    break;
+                case "sabado":
+                    if (horasExistentes.Contains(hora))
+                    {
+                        if (sabado.ContainsKey(hora))
+                        {
+                            string pessoasEmHorario = sabado[hora] + pessoa;
+                            sabado.Add(hora, pessoasEmHorario);
+                        }
+                        else
+                        {
+                            sabado.Add(hora, pessoa);
+                        }
+                    }
+                    break;
+                case "domingo":
+                    if (horasExistentes.Contains(hora))
+                    {
+                        if (domingo.ContainsKey(hora))
+                        {
+                            string pessoasEmHorario = domingo[hora] + pessoa;
+                            domingo.Add(hora, pessoasEmHorario);
+                        }
+                        else
+                        {
+                            domingo.Add(hora, pessoa);
+                        }
+                    }
+                    break;
+            }
+       }
 
         /**
          * Adciona pessoa no cronograma, caso possa ser realizao a operacao
