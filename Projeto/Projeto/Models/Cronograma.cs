@@ -9,6 +9,8 @@ namespace Projeto.Models
     public class Cronograma
     {
 
+        public string nomePessoaHorario { get; set; }
+
         private static List<int> horasExistentes = new List<int>() { 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18};
 
         public Dictionary<int, string> segunda;
@@ -36,8 +38,7 @@ namespace Projeto.Models
         */
         private void carrega()
         {
-<<<<<<< HEAD
-//            using (StreamReader rd = new StreamReader(@"C:\Users\Thaynan\Source\Repos\ASPNETMVCEmbedded\Projeto\meuArquivo.txt"))
+//            using (StreamReader rd = new StreamReader("meuArquivo.txt"))
 //            {
 //                string linhaAtual = rd.ReadLine();
 //                while (linhaAtual != null)
@@ -46,19 +47,7 @@ namespace Projeto.Models
 //                    addNoDicionario(valores[2], valores[0], Convert.ToInt32(valores[1]));
 //                    linhaAtual = rd.ReadLine();
 //                }
-//            }
-=======
-            using (StreamReader rd = new StreamReader("meuArquivo.txt"))
-            {
-                string linhaAtual = rd.ReadLine();
-                while (linhaAtual != null)
-                {
-                    string[] valores = linhaAtual.Split(',');
-                    addNoDicionario(valores[2], valores[0], Convert.ToInt32(valores[1]));
-                    linhaAtual = rd.ReadLine();
-                }
-            }
->>>>>>> 0f7bad71cb2ce8c1e3d23d4e92e02f1d3ca39f5c
+//           }
         }
 
         private void addNoDicionario(string pessoa, string dia, int hora)
@@ -77,7 +66,7 @@ namespace Projeto.Models
                         {
                             segunda.Add(hora, pessoa);
                         }
-                    }
+                    }   
                     break;
                 case "terca":
                     if (horasExistentes.Contains(hora))
@@ -252,12 +241,17 @@ namespace Projeto.Models
             return false;
         }
 
+        public string getPessoaHorario()
+        {
+            return this.nomePessoaHorario;
+        }
+
         /**
          *  Verifica se a pessoa se encontra neste determiando horario
         */
         public bool verificaPessoaEmHorario(string dia, int hora, string pessoa)
         {
-
+            pessoa = this.nomePessoaHorario;
             switch (dia)
             {
                 case "segunda":
