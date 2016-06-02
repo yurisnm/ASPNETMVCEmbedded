@@ -36,7 +36,7 @@ namespace Projeto.Models
         */
         private void carrega()
         {
-            using (StreamReader rd = new StreamReader("meuArquivo.txt"))
+            using (StreamReader rd = new StreamReader(@"C:\Users\Thaynan\Source\Repos\ASPNETMVCEmbedded\Projeto\Projeto\App_Data\meuArquivo.txt"))
             {
                 string linhaAtual = rd.ReadLine();
                 while (linhaAtual != null)
@@ -57,8 +57,7 @@ namespace Projeto.Models
                     {
                         if (segunda.ContainsKey(hora))
                         {
-                            string pessoasEmHorario = segunda[hora] + pessoa;
-                            segunda.Add(hora, pessoasEmHorario);
+                            segunda[hora] = segunda[hora] + " " + pessoa;
                         }
                         else
                         {
@@ -71,8 +70,7 @@ namespace Projeto.Models
                     {
                         if (terca.ContainsKey(hora))
                         {
-                            string pessoasEmHorario = terca[hora] + pessoa;
-                            terca.Add(hora, pessoasEmHorario);
+                            terca[hora] = terca[hora] + " " + pessoa;
                         }
                         else
                         {
@@ -85,8 +83,7 @@ namespace Projeto.Models
                     {
                         if (quarta.ContainsKey(hora))
                         {
-                            string pessoasEmHorario = quarta[hora] + pessoa;
-                            quarta.Add(hora, pessoasEmHorario);
+                            quarta[hora] = quarta[hora] + " " + pessoa;
                         }
                         else
                         {
@@ -99,8 +96,7 @@ namespace Projeto.Models
                     {
                         if (quinta.ContainsKey(hora))
                         {
-                            string pessoasEmHorario = quinta[hora] + pessoa;
-                            quinta.Add(hora, pessoasEmHorario);
+                            quinta[hora] = quinta[hora] + " " + pessoa;
                         }
                         else
                         {
@@ -113,8 +109,7 @@ namespace Projeto.Models
                     {
                         if (sexta.ContainsKey(hora))
                         {
-                            string pessoasEmHorario = sexta[hora] + pessoa;
-                            sexta.Add(hora, pessoasEmHorario);
+                            sexta[hora] = sexta[hora] + " " + pessoa;
                         }
                         else
                         {
@@ -127,8 +122,7 @@ namespace Projeto.Models
                     {
                         if (sabado.ContainsKey(hora))
                         {
-                            string pessoasEmHorario = sabado[hora] + pessoa;
-                            sabado.Add(hora, pessoasEmHorario);
+                            sabado[hora] = sabado[hora] + " " + pessoa;
                         }
                         else
                         {
@@ -141,8 +135,7 @@ namespace Projeto.Models
                     {
                         if (domingo.ContainsKey(hora))
                         {
-                            string pessoasEmHorario = domingo[hora] + pessoa;
-                            domingo.Add(hora, pessoasEmHorario);
+                            domingo[hora] = domingo[hora] + " " + pessoa;
                         }
                         else
                         {
@@ -158,9 +151,16 @@ namespace Projeto.Models
         */
         public bool addPessoaNoCronograma(string dia, int hora, string nomePessoa)
         {
-            
-
-            return true;
+            StreamWriter wr = new StreamWriter(@"C:\Users\Thaynan\Source\Repos\ASPNETMVCEmbedded\Projeto\Projeto\App_Data\meuArquivo.txt"))
+            if(!verificaPessoaEmHorario(dia, hora, nomePessoa))
+            {
+               wr.WriteLine(dia + " " + Convert.ToString(hora) + " " + nomePessoa);
+               wr.Close();
+               carrega();
+               return true;
+            }
+            wr.Close();
+            return false;
         }
 
         /**
