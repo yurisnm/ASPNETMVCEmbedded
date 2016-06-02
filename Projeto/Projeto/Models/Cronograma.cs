@@ -2,16 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Web;
 
 namespace Projeto.Models
 {
     public class Cronograma
     {
 
-        public string nomePessoaHorario { get; set; } = "";
-
-        private static List<int> horasExistentes = new List<int>() { 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18};
+        private static List<int> horasExistentes = new List<int>() { 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18};
 
         public Dictionary<int, string> segunda;
         public Dictionary<int, string> terca;
@@ -154,7 +151,7 @@ namespace Projeto.Models
        }
 
         /**
-         * Adciona pessoa no cronograma, caso possa ser realizao a operacao
+         * Adciona pessoa no cronograma, caso possa ser realizado a operacao.
         */
         public bool addPessoaNoCronograma(string dia, int hora, string nomePessoa)
         {
@@ -261,49 +258,76 @@ namespace Projeto.Models
                     if (horasExistentes.Contains(hora) && segunda.ContainsKey(hora))
                     {
                         string pessoasEmHorario = segunda[hora];
-                        if(procuraPessoa(pessoasEmHorario, pessoa)) { return pessoa; }
+                        if(procuraPessoa(pessoasEmHorario, pessoa)) {
+                            pessoa = char.ToUpper(pessoa[0]) + pessoa.Substring(1).ToLower();
+                            return pessoa;
+                        }
                     }
                     break;
                 case "terca":
                     if (horasExistentes.Contains(hora) && terca.ContainsKey(hora))
                     {
                         string pessoasEmHorario = terca[hora];
-                        if(procuraPessoa(pessoasEmHorario, pessoa)) { return pessoa; }
+                        if(procuraPessoa(pessoasEmHorario, pessoa))
+                        {
+                            pessoa = char.ToUpper(pessoa[0]) + pessoa.Substring(1).ToLower();
+                            return pessoa;
+                        }
                     }
                     break;
                 case "quarta":
                     if (horasExistentes.Contains(hora) && quarta.ContainsKey(hora))
                     {
                         string pessoasEmHorario = quarta[hora];
-                        if(procuraPessoa(pessoasEmHorario, pessoa)) { return pessoa; }
+                        if(procuraPessoa(pessoasEmHorario, pessoa))
+                        {
+                            pessoa = char.ToUpper(pessoa[0]) + pessoa.Substring(1).ToLower();
+                            return pessoa;
+                        }
                     }
                     break;
                 case "quinta":
                     if (horasExistentes.Contains(hora) && quinta.ContainsKey(hora))
                     {
                         string pessoasEmHorario = quinta[hora];
-                        if(procuraPessoa(pessoasEmHorario, pessoa)) { return pessoa; }
+                        if(procuraPessoa(pessoasEmHorario, pessoa))
+                        {
+                            pessoa = char.ToUpper(pessoa[0]) + pessoa.Substring(1).ToLower();
+                            return pessoa;
+                        }
                     }
                     break;
                 case "sexta":
                     if (horasExistentes.Contains(hora) && sexta.ContainsKey(hora))
                     {
                         string pessoasEmHorario = sexta[hora];
-                        if(procuraPessoa(pessoasEmHorario, pessoa)) { return pessoa; }
+                        if(procuraPessoa(pessoasEmHorario, pessoa))
+                        {
+                            pessoa = char.ToUpper(pessoa[0]) + pessoa.Substring(1).ToLower();
+                            return pessoa;
+                        }
                     }
                     break;
                 case "sabado":
                     if (horasExistentes.Contains(hora) && sabado.ContainsKey(hora))
                     {
                         string pessoasEmHorario = sabado[hora];
-                        if(procuraPessoa(pessoasEmHorario, pessoa)) { return pessoa; }
+                        if(procuraPessoa(pessoasEmHorario, pessoa))
+                        {
+                            pessoa = char.ToUpper(pessoa[0]) + pessoa.Substring(1).ToLower();
+                            return pessoa;
+                        }
                     }
                     break;
                 case "domingo":
                     if (horasExistentes.Contains(hora) && domingo.ContainsKey(hora))
                     {
                         string pessoasEmHorario = domingo[hora];
-                        if(procuraPessoa(pessoasEmHorario, pessoa)) { return pessoa; }
+                        if(procuraPessoa(pessoasEmHorario, pessoa))
+                        {
+                            pessoa = char.ToUpper(pessoa[0]) + pessoa.Substring(1).ToLower();
+                            return pessoa;
+                        }
                     }
                     break;
             }
@@ -311,12 +335,23 @@ namespace Projeto.Models
         }
 
         /**
-         * Verifica se ambas as pessoas encontram-se neste determinado horario
+         * Verifica se varias pessoas, separadas por ",", encontram-se neste determinado horario.
         */
-        public bool verificaVariasPessoasEmHorario(string dia, int hora, string pessoa1, string pessoa2)
+        public string verificaVariasPessoasEmHorario(string dia, int hora, string pessoas)
         {
-            
-            return true;
+            string[] arrayPessoas = pessoas.Split(',');
+            string nomesPessoas = "";
+
+            for (int i=0; i < arrayPessoas.Length; i++)
+            {
+                string pessoaAtual = arrayPessoas[i];
+                string valorPessoaNoCronograma = verificaPessoaEmHorario(dia, hora, pessoaAtual);
+
+                if (valorPessoaNoCronograma == "") { return ""; }
+                else { nomesPessoas += valorPessoaNoCronograma + " "; }
+            }
+
+            return nomesPessoas;
         }
     }
 }
