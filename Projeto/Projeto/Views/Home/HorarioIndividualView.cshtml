@@ -1,4 +1,4 @@
-﻿
+﻿@model Projeto.Models.Cronograma
 @{
     ViewBag.Title = "HorarioIndividualView";
 }
@@ -7,11 +7,12 @@
 
 <div class="container">
 
-    <div class="form-group">
-        <label for="usr">Name:</label>
-        <input type="text" class="form-control" id="usr">
-    </div>
-    <button type="button" class="btn btn-primary">Ver Horário</button>
+    @using (Html.BeginForm("HorarioIndividualView", "Home", FormMethod.Post))
+    {
+        @Html.TextBoxFor(m => m.nomePessoaHorario)
+        
+        <input type="submit" value="Ver Horário" />
+    }
 
     <h2>Horário</h2>
     <div class="table-responsive">
@@ -31,8 +32,8 @@
             <tbody>
                 <tr>
                     <td width="50">8:00</td>
-                    <td width="50">@Model.pessoasEmHorario("segunda", 8)</td>
-                    <td width="50">@Model.pessoasEmHorario("terca", 8)</td>
+                    <td width="50">@Model.getPessoaHorario()</td>
+                    <td width="50">@Model.verificaPessoaEmHorario("segunda", 8, @Model.getPessoaHorario())</td>
                     <td width="50">@Model.pessoasEmHorario("quarta", 8)</td>
                     <td width="50">@Model.pessoasEmHorario("quinta", 8)</td>
                     <td width="50">@Model.pessoasEmHorario("sexta", 8)</td>

@@ -27,5 +27,12 @@ namespace Projeto.Controllers
         {
             return View(cronograma);
         }
+
+        [HttpPost]
+        public ActionResult HorarioIndividualView(Cronograma model)
+        {
+            return View(model);
+        }
+
     }
 }
