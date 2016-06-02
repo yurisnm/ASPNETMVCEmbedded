@@ -39,7 +39,7 @@ namespace Projeto.Models
         private void carrega()
         {
 
-            using (StreamReader rd = new StreamReader("C:/Users/YURISNMELO/Desktop/EMBEDDED/WORKSPACE/ASPNETMVCEmbedded/Projeto/Projeto/App_Data/meuArquivo.txt"))
+            using (StreamReader rd = new StreamReader(@"C:\Users\Thaynan\Source\Repos\ASPNETMVCEmbedded\Projeto\Projeto\App_Data\meuArquivo.txt"))
 
             {
                 string linhaAtual = rd.ReadLine();
