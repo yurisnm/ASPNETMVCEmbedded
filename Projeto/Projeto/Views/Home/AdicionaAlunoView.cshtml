@@ -1,0 +1,27 @@
+﻿@model Projeto.Models.Cronograma
+@{
+    ViewBag.Title = "AdicionaAlunoView";
+}
+
+<h2>Adiciona Aluno</h2>
+<div>
+    @using (Html.BeginForm("AdicionaAlunoView", "Home", FormMethod.Post))
+    {
+        <fieldset>
+            <legend>Nome do Aluno</legend>
+            @Html.TextBoxFor(m => m.alunoNovo)
+            <br>
+            <br>
+            <legend>Dia da Semana</legend>
+            @Html.TextBoxFor(m => m.diaNovo)
+            <br>
+            <br>
+            <legend>Horário</legend>
+            @Html.TextBoxFor(m => m.horaNovo)
+            <input type="submit" value="Adicionar" />
+            <br>
+            <br>
+        </fieldset>
+    }
+    @Model.addPessoaNoCronograma(@Model.getDiaNovo(), @Model.getHoraNovo(), @Model.getAlunoNovo())
+</div>

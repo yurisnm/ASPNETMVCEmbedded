@@ -1,0 +1,43 @@
+﻿@model Projeto.Models.Cronograma
+@{
+    ViewBag.Title = "Alunos por horario";
+}
+
+<h2>Alunos por horario</h2>
+
+<div class="container">
+
+    @using (Html.BeginForm("AlunosHorarioView", "Home", FormMethod.Post))
+    {
+        <fieldset>
+            <legend>Dia da semana</legend>
+            @Html.TextBoxFor(m => m.diaRequest)
+            <br>
+            <br>
+            <legend>Horário</legend>
+            @Html.TextBoxFor(m => m.horarioRequest)
+            <input type="submit" value="Ver Aluno(s)" />
+            <br>
+            <br>
+        </fieldset>
+    }
+
+    
+    <div class="table-bordered">
+        <table class="table">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Hora</th>
+                    <th>@Model.getDiaRequest()</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td width="50">@Model.getHorarioRequest():00</td>
+                    <td width="50">@Model.pessoasEmHorario(@Model.getDiaRequest(),@Model.getHorarioRequest())</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

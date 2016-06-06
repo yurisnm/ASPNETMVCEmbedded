@@ -1,0 +1,50 @@
+segunda,8,Maria / Joao / Roberta
+segunda,9,Maria / Joao / Roberta
+segunda,10,Lucas / Maria / Roberta
+segunda,11,Lucas / Maria / Roberta
+segunda,13,Pedro
+segunda,14,Marcelo / Ana Lucia / Thaynan
+segunda,15,Marcelo / Ana Lucia
+segunda,16,Maira / Flavio
+segunda,17,Luiz / Pietra
+segunda,18,Luiza / Yuri
+terca,9,Joao Claudio / Beatriz
+terca,10,Joao Claudio / Beatriz / Thaynan
+terca,11,Luciana / Luciano / Carlos
+terca,12,Luciana / Luciano / Carlos / Yuri
+terca,13,Mariana
+terca,14,Marcela / Pedro / Luiza
+terca,15,Marcela / Pedro / Luiza
+terca,16,Luana / Claudia / Yuri
+quarta,8,Pedro / Lucas
+quarta,9,Pedro / Lucas
+quarta,12,Mariana / Flavia / Luiza / Beatriz
+quarta,13,Mariana / Flavia / Luiza / Beatriz
+quarta,14,Mariana / Flavia / Luiza / Beatriz
+quarta,15,Pedro / Lucas / Thaynan / Yuri
+quarta,16,Pedro / Lucas
+quarta,18,Pedro / Lucas
+quinta,8,Roberta / Marcela / Luan
+quinta,9,Roberta / Marcela / Luan
+quinta,10,Cesar / Pedro / Gabriel
+quinta,11,Cesar / Pedro / Gabriel
+quinta,14,Luana / Beatriz / Luciana
+quinta,15,Luana / Beatriz / Luciana
+quinta,18,Roberto
+sexta,8,Luana / Marcela / Claudia
+sexta,9,Luana / Marcela / Claudia
+sexta,10,Pedro / Roberta / Claudio / Luiz / Mariana
+sexta,11,Pedro / Roberta / Claudio Luiz / Mariana
+sexta,13,Pedro / Roberta / Claudio / Luiz / Mariana
+sexta,14,Pedro / Roberta / Claudio Luiz / Mariana
+sexta,15,Luiza / Beatriz / Luciana / Aline / Alice
+sexta,16,Luiza / Beatriz / Luciana / Aline / Alice
+sexta,17,Aline / Alice / Andrey / Yuri
+sabado,9,Andrey / Yuri / Mario
+sabado,10,Andrey / Yuri / Mario
+sabado,14,Luciana / Beatriz / Luiz
+sabado,15,Luciana / Beatriz / Luiz
+domingo,10,Pedro / Lucas / Luana
+domingo,11,Pedro / Lucas / Luana
+domingo,14,Pedro
+segunda,8,Guilherme

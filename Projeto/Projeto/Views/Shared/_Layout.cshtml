@@ -22,8 +22,16 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                      <a href="#">Home</a>
+                        <div>
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            @Html.ActionLink("Adiciona Pessoa", "AdicionaAlunoView", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                        </div>
                     </li>
+                    <li></li>
                     <li>
                       <div>
                           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -35,10 +43,20 @@
                       </div>
                     </li>
                     <li>
-                      <a href="#">Individual</a>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        @Html.ActionLink("Pesquisa", "HorarioIndividualView", "Home", new { area = "" }, new { @class = "navbar-brand" })
                     </li>
                     <li>
-                      <a href="#">Mesclagem</a>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        @Html.ActionLink("Alunos Horario", "AlunosHorarioView", "Home", new { area = "" }, new { @class = "navbar-brand" })
                     </li>
                 </ul>
             </div>
