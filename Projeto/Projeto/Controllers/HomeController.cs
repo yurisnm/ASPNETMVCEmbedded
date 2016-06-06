@@ -1,8 +1,4 @@
 ﻿using Projeto.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Projeto.Controllers
@@ -12,7 +8,6 @@ namespace Projeto.Controllers
         //Criando o meu cronograma que sera impresso na view
         Cronograma cronograma = new Cronograma();
 
-        // GET: Home
         public ActionResult Index()
         {
             return View(cronograma);
@@ -31,6 +26,7 @@ namespace Projeto.Controllers
         [HttpPost]
         public ActionResult HorarioIndividualView(Cronograma model)
         {
+            
             return View(model);
         }
 

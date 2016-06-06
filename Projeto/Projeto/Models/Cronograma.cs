@@ -37,8 +37,7 @@ namespace Projeto.Models
         */
         private void carrega()
         {
-
-            using (StreamReader rd = new StreamReader(@"C:\Users\Thaynan\Source\Repos\ASPNETMVCEmbedded\Projeto\Projeto\App_Data\meuArquivo.txt"))
+            using (StreamReader rd = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + "//meuArquivo.txt"))
 
             {
                 string linhaAtual = rd.ReadLine();
@@ -162,7 +161,7 @@ namespace Projeto.Models
         {
             if(verificaPessoaEmHorario(dia, hora, nomePessoa) != "")
             {
-               StreamWriter wr = new StreamWriter(@"C:\Users\YURISNMELO\Desktop\EMBEDDED\WORKSPACE\ASPNETMVCEmbedded\Projeto\Projeto\App_Data\meuArquivo.txt");
+               StreamWriter wr = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "\\meuArquivo.txt");
                wr.WriteLine(dia + "," + Convert.ToString(hora) + "," + nomePessoa);
                wr.Close();
                carrega();
