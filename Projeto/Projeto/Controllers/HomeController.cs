@@ -34,5 +34,17 @@ namespace Projeto.Controllers
             return View(model);
         }
 
+        public ActionResult HorarioMescladolView()
+        {
+            return View(cronograma);
+        }
+
+        [HttpPost]
+        public ActionResult HorarioMescladolView(Cronograma model)
+        {
+            return View(model);
+        }
+
+
     }
 }

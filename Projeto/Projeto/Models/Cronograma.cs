@@ -8,6 +8,8 @@ namespace Projeto.Models
     public class Cronograma
     {
 
+        public string nomePessoaHorario { get; set; } = "";
+
         private static List<int> horasExistentes = new List<int>() { 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18};
 
         public Dictionary<int, string> segunda;
@@ -43,7 +45,10 @@ namespace Projeto.Models
                 while (linhaAtual != null)
                 {
                     string[] valores = linhaAtual.Split(',');
-                    addNoDicionario(valores[2], valores[0], Convert.ToInt32(valores[1]));
+                    string pessoas = valores[2];
+                    int hora = Convert.ToInt32(valores[1]);
+                    string dia = valores[0];
+                    addNoDicionario(pessoas, dia, hora);
                     linhaAtual = rd.ReadLine();
                 }
 
@@ -61,7 +66,7 @@ namespace Projeto.Models
                     {
                         if (segunda.ContainsKey(hora))
                         {
-                            segunda[hora] = segunda[hora] + " " + pessoa;
+                            segunda[hora] = segunda[hora] + " / " + pessoa;
                         }
                         else
                         {
@@ -74,7 +79,7 @@ namespace Projeto.Models
                     {
                         if (terca.ContainsKey(hora))
                         {
-                            terca[hora] = terca[hora] + " " + pessoa;
+                            terca[hora] = terca[hora] + " / " + pessoa;
                         }
                         else
                         {
@@ -87,7 +92,7 @@ namespace Projeto.Models
                     {
                         if (quarta.ContainsKey(hora))
                         {
-                            quarta[hora] = quarta[hora] + " " + pessoa;
+                            quarta[hora] = quarta[hora] + " / " + pessoa;
                         }
                         else
                         {
@@ -100,7 +105,7 @@ namespace Projeto.Models
                     {
                         if (quinta.ContainsKey(hora))
                         {
-                            quinta[hora] = quinta[hora] + " " + pessoa;
+                            quinta[hora] = quinta[hora] + " / " + pessoa;
                         }
                         else
                         {
@@ -113,7 +118,7 @@ namespace Projeto.Models
                     {
                         if (sexta.ContainsKey(hora))
                         {
-                            sexta[hora] = sexta[hora] + " " + pessoa;
+                            sexta[hora] = sexta[hora] + " / " + pessoa;
                         }
                         else
                         {
@@ -126,7 +131,7 @@ namespace Projeto.Models
                     {
                         if (sabado.ContainsKey(hora))
                         {
-                            sabado[hora] = sabado[hora] + " " + pessoa;
+                            sabado[hora] = sabado[hora] + " / " + pessoa;
                         }
                         else
                         {
@@ -139,7 +144,7 @@ namespace Projeto.Models
                     {
                         if (domingo.ContainsKey(hora))
                         {
-                            domingo[hora] = domingo[hora] + " " + pessoa;
+                            domingo[hora] = domingo[hora] + " / " + pessoa;
                         }
                         else
                         {
@@ -157,8 +162,8 @@ namespace Projeto.Models
         {
             if(verificaPessoaEmHorario(dia, hora, nomePessoa) != "")
             {
-               StreamWriter wr = new StreamWriter(@"C:\Users\Thaynan\Source\Repos\ASPNETMVCEmbedded\Projeto\Projeto\App_Data\meuArquivo.txt");
-               wr.WriteLine(dia + " " + Convert.ToString(hora) + " " + nomePessoa);
+               StreamWriter wr = new StreamWriter(@"C:\Users\YURISNMELO\Desktop\EMBEDDED\WORKSPACE\ASPNETMVCEmbedded\Projeto\Projeto\App_Data\meuArquivo.txt");
+               wr.WriteLine(dia + "," + Convert.ToString(hora) + "," + nomePessoa);
                wr.Close();
                carrega();
                return true;
@@ -231,7 +236,7 @@ namespace Projeto.Models
 
         private bool procuraPessoa(string listaPessoas, string pessoaDesejada)
         {
-            List<string> arrayPessoas = listaPessoas.Split(' ').ToList<string>();
+            List<string> arrayPessoas = listaPessoas.Split(new string[] { " / " }, StringSplitOptions.None).ToList<string>();
             foreach(string pessoaAtual in arrayPessoas)
             {
                 if (pessoaAtual.ToLower().Equals(pessoaDesejada.ToLower()))
@@ -348,7 +353,8 @@ namespace Projeto.Models
                 string valorPessoaNoCronograma = verificaPessoaEmHorario(dia, hora, pessoaAtual);
 
                 if (valorPessoaNoCronograma == "") { return ""; }
-                else { nomesPessoas += valorPessoaNoCronograma + " "; }
+                else if(i < (arrayPessoas.Length - 1)) { nomesPessoas += valorPessoaNoCronograma + " / "; }
+                else { nomesPessoas += valorPessoaNoCronograma; }
             }
 
             return nomesPessoas;
