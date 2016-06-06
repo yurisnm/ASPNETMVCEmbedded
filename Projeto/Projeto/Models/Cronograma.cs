@@ -12,8 +12,8 @@ namespace Projeto.Models
         public int horarioRequest { get; set; } = 0;
         public string diaRequest { get; set; } = "Segunda";
 
-        public string alunoNovo { get; set; } = "Joao";
-        public string diaNovo { get; set; } = "Segunda";
+        public string alunoNovo { get; set; } = "";
+        public string diaNovo { get; set; } = "";
         public int horaNovo { get; set; } = 0;
 
         private static List<int> horasExistentes = new List<int>() { 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18};
@@ -167,15 +167,17 @@ namespace Projeto.Models
         */
         public bool addPessoaNoCronograma(string dia, int hora, string nomePessoa)
         {
-            if(verificaPessoaEmHorario(dia, hora, nomePessoa) != "")
+            if (dia != "" && nomePessoa != "" && horasExistentes.Contains(hora))
             {
+                if (verificaPessoaEmHorario(dia, hora, nomePessoa) == "")
+                {
+                    StreamWriter wr = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "\\meuArquivo.txt",true);
 
-               StreamWriter wr = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "\\meuArquivo.txt");
-
-               wr.WriteLine(dia + "," + Convert.ToString(hora) + "," + nomePessoa);
-               wr.Close();
-               carrega();
-               return true;
+                    wr.WriteLine(dia + "," + Convert.ToString(hora) + "," + nomePessoa);
+                    wr.Close();
+                    carrega();
+                    return true;
+                }
             }
             return false;
         }
@@ -366,6 +368,8 @@ namespace Projeto.Models
                         }
                     }
                     break;
+                default:
+                    return "";
             }
             return "";
         }
