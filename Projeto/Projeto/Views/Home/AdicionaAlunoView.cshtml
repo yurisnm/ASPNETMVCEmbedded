@@ -18,10 +18,11 @@
             <br>
             <legend>Horário</legend>
             @Html.TextBoxFor(m => m.horaNovo)
-            <input type="submit" value="Adicionar" />
+            <input type="submit" value="Adicionar" @Model.addPessoaNoCronograma(@Model.getDiaNovo(), @Model.getHoraNovo(), @Model.getAlunoNovo())/>
             <br>
             <br>
         </fieldset>
     }
-    @Model.addPessoaNoCronograma(@Model.getDiaNovo(), @Model.getHoraNovo(), @Model.getAlunoNovo())
+   
+   
 </div>

@@ -47,4 +47,4 @@ sabado,15,Luciana / Beatriz / Luiz
 domingo,10,Pedro / Lucas / Luana
 domingo,11,Pedro / Lucas / Luana
 domingo,14,Pedro
-segunda,8,Guilherme
+segunda,8,Guilhermeterca,8,camilla
