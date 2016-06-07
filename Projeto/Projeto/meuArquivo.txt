@@ -52,4 +52,3 @@ segunda,8,Guilherme
 Pedro,8,terca
 domingo,18,lucas
 domingo,18,pedro
-Domingo,10,luan

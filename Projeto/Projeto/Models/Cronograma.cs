@@ -38,6 +38,38 @@ namespace Projeto.Models
             carrega();
         }
 
+        public string getPessoaHorario()
+        {
+            return this.nomePessoaHorario;
+        }
+
+        public int getHorarioRequest()
+        {
+            return this.horarioRequest;
+        }
+
+        public string getDiaRequest()
+        {
+            string retorno = this.diaRequest;
+            retorno = char.ToUpper(retorno[0]) + retorno.Substring(1).ToLower();
+            return retorno;
+        }
+
+        public string getAlunoNovo()
+        {
+            return this.alunoNovo;
+        }
+
+        public string getDiaNovo()
+        {
+            return this.diaNovo;
+        }
+
+        public int getHoraNovo()
+        {
+            return this.horaNovo;
+        }
+
         /**
          * Carregar o banco de dados ou arquivo para salvar nos dicionarios.
         */
@@ -60,8 +92,7 @@ namespace Projeto.Models
                 }
 
            }
-
-            }
+    }
 
 
         private void addNoDicionario(string pessoa, string dia, int hora)
@@ -171,8 +202,8 @@ namespace Projeto.Models
             {
                 if (verificaPessoaEmHorario(dia, hora, nomePessoa) == "")
                 {
-                    //StreamWriter wr = new StreamWriter(@"C:\Users\Thaynan\Source\Repos\ASPNETMVCEmbedded\Projeto\Projeto\meuArquivo.txt", true);
-                    StreamWriter wr = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "\\meuArquivo.txt", true);
+                    StreamWriter wr = new StreamWriter(@"C:\Users\Thaynan\Source\Repos\ASPNETMVCEmbedded\Projeto\Projeto\meuArquivo.txt", true);
+                    //StreamWriter wr = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "\\meuArquivo.txt", true);
 
                     wr.WriteLine(dia + "," + Convert.ToString(hora) + "," + nomePessoa);
                     wr.Close();
@@ -259,37 +290,10 @@ namespace Projeto.Models
             return false;
         }
 
-        public string getPessoaHorario()
-        {
-            return this.nomePessoaHorario;
-        }
-        public int getHorarioRequest()
-        {
-            return this.horarioRequest;
-        }
-        public string getDiaRequest()
-        {
-            string retorno =  this.diaRequest;
-            retorno = char.ToUpper(retorno[0]) + retorno.Substring(1).ToLower();
-            return retorno;
-        }
-        public string getAlunoNovo()
-        {
-            return this.alunoNovo;
-        }
-        public string getDiaNovo()
-        {
-            return this.diaNovo;
-        }
-        public int getHoraNovo()
-        {
-            return this.horaNovo;
-        }
-
         /**
          *  Verifica se a pessoa se encontra neste determiando horario
         */
-        public string verificaPessoaEmHorario(string dia, int hora, string pessoa)
+        private string verificaPessoaEmHorario(string dia, int hora, string pessoa)
         {
             switch (dia.ToLower())
             {
