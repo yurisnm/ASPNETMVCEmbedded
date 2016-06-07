@@ -43,8 +43,8 @@ namespace Projeto.Models
         */
         private void carrega()
         {
-
-            using (StreamReader rd = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + "//meuArquivo.txt"))
+            using (StreamReader rd = new StreamReader(@"C:\Users\Thaynan\Source\Repos\ASPNETMVCEmbedded\Projeto\Projeto\meuArquivo.txt"))
+            //using (StreamReader rd = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + "/meuArquivo.txt"))
 
 
             {
@@ -66,7 +66,7 @@ namespace Projeto.Models
 
         private void addNoDicionario(string pessoa, string dia, int hora)
         {
-            switch (dia)
+            switch (dia.ToLower())
             {
                 case "segunda":
                     if (horasExistentes.Contains(hora))
@@ -171,7 +171,8 @@ namespace Projeto.Models
             {
                 if (verificaPessoaEmHorario(dia, hora, nomePessoa) == "")
                 {
-                    StreamWriter wr = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "\\meuArquivo.txt",true);
+                    //StreamWriter wr = new StreamWriter(@"C:\Users\Thaynan\Source\Repos\ASPNETMVCEmbedded\Projeto\Projeto\meuArquivo.txt", true);
+                    StreamWriter wr = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "\\meuArquivo.txt", true);
 
                     wr.WriteLine(dia + "," + Convert.ToString(hora) + "," + nomePessoa);
                     wr.Close();
