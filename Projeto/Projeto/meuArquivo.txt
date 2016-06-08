@@ -46,9 +46,4 @@ sabado,14,Luciana / Beatriz / Luiz
 sabado,15,Luciana / Beatriz / Luiz
 domingo,10,Pedro / Lucas / Luana
 domingo,11,Pedro / Lucas / Luana
-terca,8,Lucas
-terca,8,maria
-segunda,8,Guilherme
-Pedro,8,terca
-domingo,18,lucas
-domingo,18,pedro
+Segunda,8,Nome Sobrenome
