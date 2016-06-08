@@ -51,6 +51,11 @@ namespace Projeto.Controllers
         [HttpPost]
         public ActionResult AdicionaAlunoView(Cronograma model)
         {
+          
+            if (ModelState.IsValid)
+            {
+                return View(model);
+            }
             return View(model);
         }
 

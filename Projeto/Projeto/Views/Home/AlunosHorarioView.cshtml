@@ -4,19 +4,23 @@
 }
 
 <h2>Alunos por horario</h2>
+<p>Verifica alunos em comum presentes por dia e horário.</p>
 
 <div class="container">
 
     @using (Html.BeginForm("AlunosHorarioView", "Home", FormMethod.Post))
     {
+        @Html.ValidationSummary(true)
         <fieldset>
             <legend>Dia da semana</legend>
-            @Html.TextBoxFor(m => m.diaRequest)
-            <br>
+            @Html.TextBoxFor(m => m.diaRequest, new { @class = "form-control" })
+            <font color="red">@Html.ValidationMessageFor(m => m.diaRequest)</font>
             <br>
             <legend>Horário</legend>
-            @Html.TextBoxFor(m => m.horarioRequest)
-            <input type="submit" value="Ver Aluno(s)" />
+            @Html.TextBoxFor(m => m.horarioRequest, new { @class = "form-control" })
+            <font color="red">@Html.ValidationMessageFor(m => m.horarioRequest)</font>
+            <br>
+            <input type="submit" class="btn btn-info" value="Ver Aluno(s)" />
             <br>
             <br>
         </fieldset>

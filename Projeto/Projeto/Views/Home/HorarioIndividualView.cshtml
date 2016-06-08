@@ -4,14 +4,20 @@
 }
 
 <h2>Horário Individual</h2>
+<p>Procure por um aluno ou vários separados por vírgulas.</p>
 
 <div class="container">
 
     @using (Html.BeginForm("HorarioIndividualView", "Home", FormMethod.Post))
     {
-        @Html.TextBoxFor(m => m.nomePessoaHorario)
-        
-        <input type="submit" value="Ver Horário" />
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <legend>Nome dos alunos</legend>
+            @Html.TextBoxFor(m => m.nomePessoaHorario, new { @class = "form-control" })
+            <font color="red">@Html.ValidationMessageFor(m => m.nomePessoaHorario)</font>
+            <br>
+            <input type="submit" class="btn btn-info" value="Ver Horário" />
+        </fieldset>
     }
 
     <h2>Horário</h2>

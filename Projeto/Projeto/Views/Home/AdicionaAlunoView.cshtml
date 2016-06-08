@@ -4,21 +4,25 @@
 }
 
 <h2>Adiciona Aluno</h2>
+<p>Adicione horarios a existentes ou novos alunos.</p>
 <div>
     @using (Html.BeginForm("AdicionaAlunoView", "Home", FormMethod.Post))
     {
+        @Html.ValidationSummary(true)
         <fieldset>
-            <legend>Nome do Aluno</legend>
-            @Html.TextBoxFor(m => m.alunoNovo)
-            <br>
+            <legend>Nome do aluno</legend>
+            @Html.TextBoxFor(m => m.alunoNovo ,new { @class = "form-control"})
+            <font color="red">@Html.ValidationMessageFor(m => m.alunoNovo)</font>
             <br>
             <legend>Dia da Semana</legend>
-            @Html.TextBoxFor(m => m.diaNovo)
-            <br>
+            @Html.TextBoxFor(m => m.diaNovo, new { @class = "form-control" })
+            <font color="red">@Html.ValidationMessageFor(m => m.diaNovo)</font>
             <br>
             <legend>Horário</legend>
-            @Html.TextBoxFor(m => m.horaNovo)
-            <input type="submit" value="Adicionar" @Model.addPessoaNoCronograma(@Model.getDiaNovo(), @Model.getHoraNovo(), @Model.getAlunoNovo())/>
+            @Html.TextBoxFor(m => m.horaNovo, new { @class = "form-control" })
+            <font color="red">@Html.ValidationMessageFor(m => m.horaNovo)</font>
+            <br>
+            <input type="submit" class="btn btn-info" value="Adicionar" @Model.addPessoaNoCronograma(@Model.getDiaNovo(), @Model.getHoraNovo(), @Model.getAlunoNovo()) />
             <br>
             <br>
         </fieldset>
