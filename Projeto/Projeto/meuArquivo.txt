@@ -46,10 +46,4 @@ sabado,14,Luciana / Beatriz / Luiz
 sabado,15,Luciana / Beatriz / Luiz
 domingo,10,Pedro / Lucas / Luana
 domingo,11,Pedro / Lucas / Luana
-domingo,14,Pedro
-segunda,8,yuri
-segunda,8,mae joana
-segunda,8,jOÃO
-sexta,16,John
-Segunda,8,Nome Sobrenome
-domingo,18,Flavio
+

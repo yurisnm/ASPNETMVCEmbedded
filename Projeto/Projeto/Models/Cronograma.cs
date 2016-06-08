@@ -57,6 +57,7 @@ namespace Projeto.Models
             using (StreamReader rd = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + "/meuArquivo.txt"))
 
 
+
             {
                 string linhaAtual = rd.ReadLine();
                 while (linhaAtual != null)
@@ -70,8 +71,7 @@ namespace Projeto.Models
                 }
 
            }
-
-            }
+    }
 
 
         private void addNoDicionario(string pessoa, string dia, int hora)
@@ -181,6 +181,7 @@ namespace Projeto.Models
             {
                 if (verificaPessoaEmHorario(dia, hora, nomePessoa) == "")
                 {
+
                     //StreamWriter wr = new StreamWriter(@"C:\Users\Thaynan\Source\Repos\ASPNETMVCEmbedded\Projeto\Projeto\meuArquivo.txt", true);
                     StreamWriter wr = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "\\meuArquivo.txt", true);
 
@@ -271,6 +272,7 @@ namespace Projeto.Models
             return false;
         }
 
+
         public string getPessoaHorario()
         {
             return this.nomePessoaHorario;
@@ -300,11 +302,11 @@ namespace Projeto.Models
         {
             return this.horaNovo;
         }
-
+        
         /**
          *  Verifica se a pessoa se encontra neste determiando horario
         */
-        public string verificaPessoaEmHorario(string dia, int hora, string pessoa)
+        private string verificaPessoaEmHorario(string dia, int hora, string pessoa)
         {
             switch (dia.ToLower())
             {
